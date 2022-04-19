@@ -28,22 +28,21 @@ void main(List<String> arguments) {
   if (closestMaxSum > givenSum) {
     print("No such number that can be lower than $givenSum");
   } else {
-    int k = 2;
-
     //calculating the closest sum of the elements to the given sum
-    while (k <= n) {
+    for (int k = 0; k < n; k++) {
       for (int i = 0; i < n; i++) {
         num sum = numbers[i];
 
-        for (int j = i + 1; j < k; j++) {
-          sum += numbers[j];
+        for (int j = 0; j <= k; j++) {
+          if(i!=j){
+            sum+=numbers[j];
+          }
         }
 
         if (sum > closestMaxSum && sum <= givenSum) {
           closestMaxSum = sum;
         }
       }
-      k++;
     }
 
     print("The closest sum of the elements: $closestMaxSum");
